@@ -1,2 +1,1 @@
-# gitlab-offline-server-packer-recipe
-Offline Gitlab server Packer recipe
+# Foundation Layer - GCE Bakery - Gitlab Offline Server
