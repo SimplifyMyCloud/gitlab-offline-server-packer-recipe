@@ -25,7 +25,7 @@ build {
   }
   provisioner "shell" {
     environment_vars = [
-      "EXTERNAL_URL=http://git.smc.internal",
+      "EXTERNAL_URL=http://git.theargo.io",
     ]
     inline = [
       "sudo dnf update -y",
@@ -44,7 +44,6 @@ build {
       "sudo chmod 755 /etc/gitlab/ssl",
       "sudo cp /tmp/openssl.cnf /etc/gitlab/ssl/openssl.cnf",
       "sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/gitlab/ssl/git.smc.internal.key -out /etc/gitlab/ssl/git.smc.internal.crt -config /etc/gitlab/ssl/openssl.cnf",
-      "sudo gitlab-ctl reconfigure",
     ]
   }
 }
