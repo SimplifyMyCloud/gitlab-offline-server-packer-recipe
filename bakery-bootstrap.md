@@ -18,12 +18,12 @@ export BK_ORG_ID=123456789000
 export BK_BILLING_ACCOUNT=012345-ABCDEF-012345
 export BK_GCP_REGION=us-west1
 export BK_GCP_ZONE=us-west1-c
-export BK_GCP_FOLDER=simplifymycloud-dev
+export BK_GCP_FOLDER=smc-dev
 export BK_GCP_PROJECT=smc-bakery-bootstrap
 export BK_GCP_VPC=smc-bakery-vpc
 export BK_GCP_SUBNET=smc-bakery-subnet
 export BK_GCP_FIREWALL=smc-bakery-internal-allow-iap-fw
-export BK_GCE_VM=smc-bakery
+export BK_GCE_VM=smc-bakery-00
 export BK_PACKER_SA=packersa
 export BK_PACKER_SA_EMAIL=${BK_PACKER_SA}@${BK_GCP_PROJECT}.iam.gserviceaccount.com
 ```
@@ -128,7 +128,7 @@ gcloud compute firewall-rules create allow-ssh-ingress-from-iap \
   --network=${BK_GCP_VPC} \
   --action=ALLOW \
   --rules=tcp:22 \
-  --source-ranges=35.235.240.0/20 \
+  --source-ranges="35.235.240.0/20" \
   --enable-logging
 ```
 
@@ -172,7 +172,6 @@ sudo dnf install wget unzip -y
 
 Get latest from here:
 https://developer.hashicorp.com/packer/downloads
-
 
 ```bash
 wget https://releases.hashicorp.com/packer/1.8.5/packer_1.8.5_linux_amd64.zip
