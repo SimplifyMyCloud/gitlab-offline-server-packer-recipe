@@ -1,6 +1,6 @@
 # Foundation Layer - GCE Bakery - Gitlab Offline Server
 
-This bakery recipe ensures an offline Gitlab server, that has no pubilc IP, and only a single internal IP `10.0.0.0`.
+This bakery recipe ensures an offline Gitlab server, that has no public IP, and only a single internal IP `10.0.0.0`.
 
 To access the Gitlab instance we will create an IAP tunnel over SSH that will forward a `localhost` port to the VM, allowing access to the Gitlab UI.
 
@@ -45,4 +45,13 @@ cat initial_root_password
 
 ```bash
 gitlab-ctl reconfigure
+```
+
+## Establish IAP Tunnel
+
+```bash
+gcloud compute ssh gitlab-offline-01 \
+--zone us-west1-c \
+--tunnel-through-iap \
+-- -NL 8080:localhost:8080
 ```
