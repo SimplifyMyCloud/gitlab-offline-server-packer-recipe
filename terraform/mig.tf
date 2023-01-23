@@ -1,0 +1,1 @@
+# Foundation Layer - GCP Ops - Gitlab Offline Server Desired State - GCE Mangaged Instance Group
