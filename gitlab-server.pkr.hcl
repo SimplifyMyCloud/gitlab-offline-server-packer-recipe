@@ -24,9 +24,6 @@ build {
     destination = "/tmp/openssl.cnf"
   }
   provisioner "shell" {
-    environment_vars = [
-      "EXTERNAL_URL=http://git.theargo.io",
-    ]
     inline = [
       "sudo dnf update -y",
       "sudo dnf install unzip -y",
@@ -39,7 +36,7 @@ build {
       "sudo systemctl enable postfix",
       "sudo systemctl start postfix",
       "sudo cp /tmp/gitlab_gitlab-ee.repo /etc/yum.repos.d/gitlab_gitlab-ee.repo",
-      "sudo dnf install gitlab-ee -y",
+      "sudo dnf install gitlab-ee -y",      
       "sudo mkdir -p /etc/gitlab/ssl",
       "sudo chmod 755 /etc/gitlab/ssl",
       "sudo cp /tmp/openssl.cnf /etc/gitlab/ssl/openssl.cnf",
