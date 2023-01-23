@@ -1,4 +1,4 @@
-# Foundation Layer - GCE Bakery - Gitlab Offline Server
+# Foundation Layer - GCE Bakery - Gitlab Offline Server Recipe
 
 This bakery recipe ensures an offline Gitlab server, that has no public IP, and only a single internal IP `10.0.0.0`.
 
