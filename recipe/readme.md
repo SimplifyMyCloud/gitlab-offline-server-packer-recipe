@@ -7,7 +7,7 @@ To access the Gitlab instance we will create an IAP tunnel over SSH that will fo
 ## Launch the Gitlab VM instance
 
 ```bash
-gcloud compute instances create gitlab-offline-01 \
+gcloud compute instances create gitlab-offline-05 \
 --project=simplifymycloud-dev \
 --zone=us-west1-c \
 --machine-type=n2-standard-8 \
@@ -15,9 +15,9 @@ gcloud compute instances create gitlab-offline-01 \
 --metadata=enable-oslogin=true \
 --maintenance-policy=MIGRATE \
 --provisioning-model=STANDARD \
---service-account=222261943767-compute@developer.gserviceaccount.com \
+--service-account=288261943767-compute@developer.gserviceaccount.com \
 --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append \
---create-disk=auto-delete=yes,boot=yes,device-name=gitlab-offline-00,image=projects/simplifymycloud-dev/global/images/gitlab-offline-v07,mode=rw,size=20,type=projects/simplifymycloud-dev/zones/us-west1-c/diskTypes/pd-balanced \
+--create-disk=auto-delete=yes,boot=yes,device-name=gitlab-offline-00,image=projects/simplifymycloud-dev/global/images/gitlab-offline-v10,mode=rw,size=20,type=projects/simplifymycloud-dev/zones/us-west1-c/diskTypes/pd-balanced \
 --shielded-secure-boot \
 --shielded-vtpm \
 --shielded-integrity-monitoring \
@@ -50,7 +50,7 @@ gitlab-ctl reconfigure
 ## Establish IAP Tunnel
 
 ```bash
-gcloud compute ssh gitlab-offline-01 \
+gcloud compute ssh gitlab-offline-05 \
 --zone us-west1-c \
 --tunnel-through-iap \
 -- -NL 8080:localhost:8080
