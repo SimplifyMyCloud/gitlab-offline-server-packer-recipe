@@ -1,11 +1,11 @@
 # Foundation Layer - GCP Ops - Gitlab Offline Server Desired State - GCE Mangaged Instance Group
 # Infrastructure base name = gitlab-tf-org-ops-{asset}
 resource "google_compute_instance_group_manager" "gitlab-mig" {
-  name = "gitlab-tf-org-ops"
-  description = "Gitlab offline instance to host GCP Org Ops Terraform code"
-  project = ""
-  zone = "us-west1-c"
-  network = 
+  name               = "gitlab-tf-org-ops"
+  description        = "Gitlab offline instance to host GCP Org Ops Terraform code"
+  project            = ""
+  zone               = "us-west1-c"
+  network            = "subnet-name"
   base_instance_name = "gitlab-tf-org-ops-tf-server"
 
   version {
